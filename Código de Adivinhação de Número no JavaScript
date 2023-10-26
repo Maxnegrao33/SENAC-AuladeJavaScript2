@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <neta author="Maciel Oliveira">
+    <title>Adivinha</title>
+</head>
+<body>
+    <h1> Adivinha o número que pensei</h1>
+    <p> Tente adivinhar o número entre 1 e 100</p>
+        <input type="number" id="palpite">
+        <button id="verificar">Verificar</button>
+        <p id="resultado"></p>
+
+
+    <script>
+        //entrada de dados
+        let numeroAleatorio = Math.floor(Math.random()*100) + 1
+        let palpiteInput = document.getElementById("palpite")
+        let verificaBotao = document.getElementById("verificar")
+        let resultao = document.getElementById("resultado")
+        let tentativas = 0
+
+        //Processamento de Dados
+        verificaBotao.addEventListener("click", function(){
+            let palpite = parseInt(palpiteInput.value)
+            tentativas ++
+            if (palpite === numeroAleatorio){
+                resultado.textContent = "Parabéns Acertou!"
+                alert("Você fez em : "+tentativas)
+            }else if(palpite <numeroAleatorio){
+                resultado.textContent = "Tente um número maior"
+            } else {
+                resultado.textContent = "Tente um número menor"
+            }
+        })
+
+    </script>
+</body>
+</html>
